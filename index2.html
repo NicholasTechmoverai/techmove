@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Heartbeat Animation</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .single-heart {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            transform: rotate(-45deg);
+            animation: one-heartbeat 1.5s infinite;
+        }
+
+        .single-heart::before,
+        .single-heart::after {
+            content: "";
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: red;
+        }
+
+        .single-heart::before {
+            top: -50px;
+            left: 0;
+        }
+
+        .single-heart::after {
+            top: 0;
+            left: 50px;
+        }
+
+        @keyframes one-heartbeat {
+            0%, 100% {
+                transform: scale(1) rotate(-45deg);
+            }
+            25% {
+                transform: scale(1.1) rotate(-45deg);
+            }
+            50% {
+                transform: scale(0.9) rotate(-45deg);
+            }
+            75% {
+                transform: scale(1.1) rotate(-45deg);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="single-heart"></div>
+
+</body>
+</html>

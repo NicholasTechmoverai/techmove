@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Heart Wave Animation</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .heart-wave {
+            display: flex;
+        }
+
+        .heart {
+            position: relative;
+            width: 50px;
+            height:50px;
+            background-color: red;
+            margin: 0 15px;
+            transform: rotate(-45deg);
+            animation: heartbeat 1.5s infinite;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: "";
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: red;
+        }
+
+        .heart::before {
+            top: -25px;
+            left: 0;
+        }
+
+        .heart::after {
+            top: 0;
+            left: 25px;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1) rotate(-45deg);
+                background-color: red;
+            }
+            25% {
+                transform: scale(1.1) rotate(-45deg);
+                background-color: rgb(255, 0, 212);
+            }
+            50% {
+                transform: scale(0.9) rotate(-45deg);
+                background-color: rgb(0, 34, 255);
+            }
+            75% {
+                transform: scale(1.1) rotate(-45deg);
+                background-color: rgb(0, 255, 68);
+            }
+        }
+
+        /* Add delays to create the wave effect */
+        .heart:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .heart:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .heart:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .heart:nth-child(4) {
+            animation-delay: 0.6s;
+        }
+
+        .heart:nth-child(5) {
+            animation-delay: 0.8s;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="heart-wave">
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+    </div>
+
+</body>
+</html>
